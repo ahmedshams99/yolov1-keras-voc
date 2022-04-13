@@ -287,7 +287,7 @@ def _main(args):
               section.startswith('detection') or
               section.startswith('softmax')):
             pass  # Configs not currently handled during models definition.
-        elif section.startswith('local'):
+        elif section.startswith('local_0'):
             size = int(cfg_parser[section]['size'])
             stride = int(cfg_parser[section]['stride'])
             pad = int(cfg_parser[section]['pad'])
