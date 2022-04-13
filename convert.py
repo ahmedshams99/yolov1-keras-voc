@@ -292,7 +292,8 @@ def _main(args):
             stride = int(cfg_parser[section]['stride'])
             pad = int(cfg_parser[section]['pad'])
             filters = int(cfg_parser[section]['filters'])
-            prev_layer = LocallyConnected2D(filters = filters, kernel_size=size, strides=stride, padding=pad)(prev_layer)
+            padding = 'same' if pad == 1 else 'valid'
+            prev_layer = LocallyConnected2D(filters = filters, kernel_size=size, strides=stride, padding=padding)(prev_layer)
 
             if activation == 'linear':
                 all_layers.append(prev_layer)
