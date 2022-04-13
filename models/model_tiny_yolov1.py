@@ -88,3 +88,122 @@ def model_tiny_yolov1(inputs):
     outputs = Yolo_Reshape((7, 7, 30))(x)
 
     return outputs
+def model_yolov1(inputs):
+    x = Conv2D(filters=64, kernel_size= (7, 7), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = MaxPooling2D((2, 2), strides=(2, 2), padding='same')(x)
+
+    
+    x = Conv2D(filters=192, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = MaxPooling2D((2, 2), strides=(2, 2), padding='same')(x)
+    
+
+    x = Conv2D(filters=128, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=256, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=256, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = MaxPooling2D((2, 2), strides=(2, 2), padding='same')(x)
+
+    
+    x = Conv2D(filters=256, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=256, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=256, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=256, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = MaxPooling2D((2, 2), strides=(2, 2), padding='same')(x)
+
+    
+    
+    x = Conv2D(filters=512, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=512, kernel_size= (1, 1), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', strides=(2, 2), name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = Conv2D(filters=1024, kernel_size= (3, 3), padding='same', name='convolutional_0', use_bias=False,
+               kernel_regularizer=l2(5e-4), trainable=False)(inputs)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    x = LocallyConnected2D(filters = filters, kernel_size=size, strides=stride, padding=padding, implementation=2)(x)
+    x = BatchNormalization(name='bnconvolutional_0', trainable=False)(x)
+    x = LeakyReLU(alpha=0.1)(x)
+    
+    x = Flatten()(x)
+    x = Dropout(0.5)(x)
+    x = Dense(1470, activation='sigmoid')(x)
+    outputs = Yolo_Reshape((7, 7, 30))(x)
+    return outputs
