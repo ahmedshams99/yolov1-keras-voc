@@ -3,7 +3,7 @@ from keras import Input
 from keras.models import Model
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
 import os
-from models.model_tiny_yolov1 import model_tiny_yolov1
+from models.model_tiny_yolov1 import model_tiny_yolov1, model_yolov1
 from data_sequence import SequenceData
 from yolo.yolo import yolo_loss
 from callback import callback
