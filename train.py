@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser(description='Train NetWork.')
 parser.add_argument('epochs', help='Num of epochs.')
 parser.add_argument('batch_size', help='Num of batch size.')
 parser.add_argument('datasets_path', help='Path to datasets.')
+parser.add_argument('model_name', help='Name of the model (Tiny or full YOLO).')
 
 
 def _main(args):
@@ -20,7 +21,10 @@ def _main(args):
 
     input_shape = (448, 448, 3)
     inputs = Input(input_shape)
-    yolo_outputs = model_tiny_yolov1(inputs)
+    if os.path.expanduser(args.epochs)=="tiny":
+        yolo_outputs = model_tiny_yolov1(inputs)
+    else:
+        yolo_outputs = model_yolov1(inputs)
 
     model = Model(inputs=inputs, outputs=yolo_outputs)
     model.compile(loss=yolo_loss, optimizer='adam')
@@ -33,10 +37,13 @@ def _main(args):
         os.makedirs(save_dir)
 
     if os.path.exists('checkpoints/weights.hdf5'):
+        print("Using training checkpoint")
         model.load_weights('checkpoints/weights.hdf5', by_name=True)
-    else:
+    elif os.path.exists('tiny-yolov1.hdf5'):
+        print("Using pretrained weights")
         model.load_weights('tiny-yolov1.hdf5', by_name=True)
-        print('no train history')
+    else:
+        print("training with no pre-trained weights")
 
     # epoch_file_path = 'checkpoints/epoch.txt'
     # try:
