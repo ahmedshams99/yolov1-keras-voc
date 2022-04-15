@@ -202,6 +202,6 @@ def model_yolov1(inputs):
     x = Flatten()(x)
     x = Dense(4096, activation='sigmoid')(x)
     x = Dropout(0.5)(x)
-    x = Dense(1225, activation='sigmoid')(x)
-    outputs = Yolo_Reshape((7, 7, 25))(x)
+    x = Dense(1470, activation='sigmoid')(x)
+    outputs = Yolo_Reshape((7, 7, 30))(x)
     return outputs
