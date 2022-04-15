@@ -90,7 +90,7 @@ def model_tiny_yolov1(inputs):
     return outputs
 def model_yolov1(inputs):
     x = Conv2D(filters=64, kernel_size= (7, 7), padding='same', name='convolutional_0',
-               kernel_regularizer=l2(5e-4))(x)
+               kernel_regularizer=l2(5e-4))(inputs)
     x = BatchNormalization(name='bnconvolutional_0')(x)
     x = LeakyReLU(alpha=0.1)(x)
     x = MaxPooling2D((2, 2), strides=(2, 2), padding='same')(x)
