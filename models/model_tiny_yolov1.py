@@ -83,7 +83,7 @@ def model_tiny_yolov1(inputs):
     x = LeakyReLU(alpha=0.1)(x)
 
     x = Flatten()(x)
-    x = Dense(1470, activation='linear', name='connected_0')(x)
+    x = Dense(1470, activation='sigmoid', name='connected_0')(x)
     # outputs = Reshape((7, 7, 30))(x)
     outputs = Yolo_Reshape((7, 7, 30))(x)
 
