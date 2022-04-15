@@ -1,5 +1,5 @@
 from keras.layers import Conv2D, MaxPooling2D, \
-    Flatten, Dense, Reshape, LeakyReLU, BatchNormalization, Layer
+    Flatten, Dense, Reshape, LeakyReLU, BatchNormalization, Layer, Dropout
 from keras.regularizers import l2
 import keras.backend as K
 
